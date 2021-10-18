@@ -6,7 +6,207 @@
           box-sizing: border-box;
 }
 
+h1,
+h2,
+p,
+button {
+  font-family: "Spartan", sans-serif;
+  font-weight: 700;
+}
+
+p {
+  font-weight: 500;
+}
+
+#filterBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#btnClearAllFilters {
+  border: 1px solid gray;
+  color: #7b8e8e;
+  background-color: transparent;
+  padding: 0 0.2rem;
+  display: block;
+  height: 2rem;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+#btnClearAllFilters:hover, #btnClearAllFilters:focus {
+  cursor: pointer;
+}
+
+#filterItems {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filterItem {
+  border-radius: 8px;
+  overflow: hidden;
+  height: 2rem;
+  background-color: #effafa;
+}
+
+.filterText {
+  display: inline-block;
+  padding: 0 0.6rem;
+  font-weight: 700;
+  color: #5ba4a4;
+  height: 100%;
+}
+
+.btnRemoveFilterItem {
+  background-color: #5ba4a4;
+  background-image: url("../images/icon-remove.svg");
+  height: 100%;
+  width: 2rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  vertical-align: middle;
+}
+
+.btnRemoveFilterItem:hover, .btnRemoveFilterItem:focus {
+  cursor: pointer;
+}
+
+.itemBox {
+  margin-top: 2rem;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+}
+
+.dot {
+  color: #7b8e8e;
+  padding: 0 0.2rem;
+}
+
+h2 {
+  font-size: 0.8rem;
+  display: inline;
+  line-height: 14px;
+}
+
+h1 {
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+
+p {
+  color: #7b8e8e;
+  font-size: 0.8rem;
+}
+
+img {
+  position: absolute;
+  content: "";
+  width: 50px;
+  height: 50px;
+  top: -1.4rem;
+}
+
+.jobItem {
+  position: relative;
+  margin-top: 4rem;
+}
+
+.jobDescriptionBox {
+  margin: 0.8rem 0 1.3rem 0;
+}
+
+.jobCompany {
+  color: #5ba4a4;
+  margin-right: 1rem;
+}
+
+.tagNew,
+.tagFeatured {
+  text-transform: uppercase;
+  border-radius: 16px;
+  color: white;
+  display: inline-block;
+  padding: 0.5rem 0.7rem;
+}
+
+.tagFeatured {
+  background-color: #2c3a3a;
+}
+
+.tagNew {
+  background-color: #5ba4a4;
+}
+
+.itemFeatured {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.itemFeatured::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0.5rem;
+  background-color: #5ba4a4;
+}
+
+.tags {
+  border-top: 1px solid #7b8e8e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.tagItem {
+  background-color: #effafa;
+  color: #5ba4a4;
+  border-radius: 8px;
+  padding: 0.7rem 0.4rem;
+  border: none;
+  font-size: 0.8rem;
+}
+
+.tagItem:hover, .tagItem:focus {
+  cursor: pointer;
+}
+
 body {
-  font-family: 'Spartan', sans-serif;
+  position: relative;
+  background-color: #effafa;
+}
+
+body::before {
+  position: absolute;
+  content: "";
+  height: 10rem;
+  left: 0;
+  right: 0;
+  background-image: url("../images/bg-header-mobile.svg");
+  background-repeat: no-repeat;
+  background-color: #5ba4a4;
+  background-size: cover;
+  z-index: -1;
+}
+
+.bgHelper {
+  padding: 0 2rem;
+  padding-top: 5rem;
 }
 /*# sourceMappingURL=main.css.map */
