@@ -17,6 +17,17 @@ button {
 h1 {
   margin: 1rem 0;
   font-size: 1rem;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+h1:hover, h1:focus {
+  cursor: pointer;
+  color: #5ba4a4;
+}
+
+h1:active {
+  text-decoration: underline;
 }
 
 h2 {
@@ -63,9 +74,7 @@ body::before {
 }
 
 #filterBox {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -178,6 +187,7 @@ img {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    margin-top: 2rem;
   }
 }
 
@@ -188,7 +198,7 @@ img {
 @media screen and (min-width: 60rem) {
   .jobDescriptionBox {
     margin: 0;
-    margin-left: 7rem;
+    margin-left: 8rem;
   }
 }
 
@@ -213,6 +223,7 @@ img {
 
 .tagNew {
   background-color: #5ba4a4;
+  margin-right: 0.5rem;
 }
 
 .itemFeatured {
@@ -267,5 +278,9 @@ img {
   cursor: pointer;
   background-color: #5ba4a4;
   color: white;
+}
+
+.displayNone {
+  display: none;
 }
 /*# sourceMappingURL=main.css.map */

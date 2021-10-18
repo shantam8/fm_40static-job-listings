@@ -19,6 +19,17 @@ button {
 h1 {
   margin: 1rem 0;
   font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    color: $desaturatedDarkCyan;
+  }
+
+  &:active{
+      text-decoration: underline;
+  }
 }
 
 h2 {
@@ -62,9 +73,10 @@ body {
   }
 }
 
+
 #filterBox {
-  display: flex;
-  justify-content: space-between;
+    display: none;
+    justify-content: space-between;
 }
 
 #btnClearAllFilters {
@@ -79,10 +91,10 @@ body {
 
   &:hover,
   &:focus {
-    cursor: pointer;
-    text-decoration: underline;
+      cursor: pointer;
+      text-decoration: underline;
     color: $desaturatedDarkCyan;
-  }
+}
 }
 
 #filterItems {
@@ -92,14 +104,14 @@ body {
 }
 
 .filterItem {
-  height: 2rem;
+    height: 2rem;
   border-radius: 8px;
   background-color: $lightGrayishCyanBg;
   overflow: hidden;
 }
 
 .filterText {
-  display: inline-block;
+    display: inline-block;
   padding: 0 0.6rem;
   height: 100%;
   color: $desaturatedDarkCyan;
@@ -116,63 +128,64 @@ body {
   background-position: center;
   vertical-align: middle;
   transition: all 0.2s ease-in-out;
-
+  
   &:hover,
   &:focus {
-    cursor: pointer;
-    background-color: black;
-  }
+      cursor: pointer;
+      background-color: black;
+    }
 }
 
 .itemBox {
-  margin-top: 2rem;
-  padding: 1.5rem;
+    margin-top: 2rem;
+    padding: 1.5rem;
   border-radius: 16px;
   background-color: white;
 }
 
 .dot {
-  padding: 0 0.2rem;
+    padding: 0 0.2rem;
   color: $darkGrayishCyan;
 }
 
 img {
-  position: absolute;
-  content: "";
+    position: absolute;
+    content: "";
   width: 50px;
   height: 50px;
   top: -1.4rem;
-
+  
   @media screen and (min-width: 60rem) {
-    width: 100px;
-    height: 100px;
-    top: unset;
+      width: 100px;
+      height: 100px;
+      top: unset;
     left: 1.4rem;
-  }
+}
 }
 
 .jobItem {
-  position: relative;
+    position: relative;
   margin-top: 4rem;
-
+  
   @media screen and (min-width: 60rem) {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 2rem;
   }
 }
 
 .jobDescriptionBox {
-  margin: 0.8rem 0 1.3rem 0;
+    margin: 0.8rem 0 1.3rem 0;
 
-  @media screen and (min-width: 60rem) {
+    @media screen and (min-width: 60rem) {
     margin: 0;
-    margin-left: 7rem;
+    margin-left: 8rem;
   }
 }
 
 .jobCompany {
-  margin-right: 1rem;
+    margin-right: 1rem;
   color: $desaturatedDarkCyan;
 }
 
@@ -191,18 +204,19 @@ img {
 }
 
 .tagNew {
-  background-color: $desaturatedDarkCyan;
+    background-color: $desaturatedDarkCyan;
+    margin-right: 0.5rem;
 }
 
 .itemFeatured {
-  position: absolute;
-  width: 1rem;
-  top: 0;
+    position: absolute;
+    width: 1rem;
+    top: 0;
   left: 0;
   bottom: 0;
   border-radius: 16px;
   overflow: hidden;
-
+  
   &::after {
     position: absolute;
     content: "";
@@ -211,7 +225,7 @@ img {
     left: 0;
     bottom: 0;
     background-color: $desaturatedDarkCyan;
-  }
+}
 }
 
 .tags {
@@ -220,10 +234,10 @@ img {
   flex-wrap: wrap;
   gap: 1rem;
   border-top: 1px solid $darkGrayishCyan;
-
+  
   @media screen and (min-width: 60rem) {
     border: none;
-  }
+}
 }
 
 .tagItem {
@@ -234,11 +248,15 @@ img {
   font-size: 0.8rem;
   color: $desaturatedDarkCyan;
   transition: all 0.2s ease-in-out;
-
+  
   &:hover,
   &:focus {
     cursor: pointer;
     background-color: $desaturatedDarkCyan;
     color: white;
-  }
+}
+}
+
+.displayNone{
+    display: none;
 }
