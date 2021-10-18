@@ -16,92 +16,124 @@ button {
   font-weight: 700;
 }
 
+h1 {
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+h2 {
+  display: inline;
+  font-size: 0.8rem;
+  line-height: 14px;
+}
+
 p {
+  font-size: 0.8rem;
   font-weight: 500;
+  color: $darkGrayishCyan;
+}
+
+body {
+  position: relative;
+  margin-bottom: 5rem;
+  background-color: $lightGrayishCyanBg;
+
+  &::before {
+    position: absolute;
+    content: "";
+    height: 10rem;
+    left: 0;
+    right: 0;
+    background-color: $desaturatedDarkCyan;
+    background-image: url("../images/bg-header-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+  }
+}
+
+.bgHelper {
+  padding: 0 2rem;
+  padding-top: 5rem;
+
+  @media screen and (min-width: 70rem) {
+    margin: 0 auto;
+    max-width: 70rem;
+  }
 }
 
 #filterBox {
   display: flex;
+  justify-content: space-between;
 }
 
 #btnClearAllFilters {
-  border: 1px solid gray;
-  color: $darkGrayishCyan;
-  background-color: transparent;
-  padding: 0 0.2rem;
   display: block;
+  padding: 0 0.2rem;
   height: 2rem;
+  border: none;
+  background-color: transparent;
+  color: $darkGrayishCyan;
   align-self: center;
+  transition: all 0.2s ease-in-out;
 
   &:hover,
   &:focus {
     cursor: pointer;
+    text-decoration: underline;
+    color: $desaturatedDarkCyan;
   }
 }
 
 #filterItems {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .filterItem {
-  border-radius: 8px;
-  overflow: hidden;
   height: 2rem;
+  border-radius: 8px;
   background-color: $lightGrayishCyanBg;
+  overflow: hidden;
 }
 
 .filterText {
   display: inline-block;
   padding: 0 0.6rem;
-  font-weight: 700;
-  color: $desaturatedDarkCyan;
   height: 100%;
+  color: $desaturatedDarkCyan;
+  font-weight: 700;
 }
 
 .btnRemoveFilterItem {
+  width: 2rem;
+  height: 100%;
+  border: none;
   background-color: $desaturatedDarkCyan;
   background-image: url("../images/icon-remove.svg");
-  height: 100%;
-  width: 2rem;
   background-repeat: no-repeat;
   background-position: center;
-  border: none;
   vertical-align: middle;
+  transition: all 0.2s ease-in-out;
 
   &:hover,
   &:focus {
     cursor: pointer;
+    background-color: black;
   }
 }
 
 .itemBox {
   margin-top: 2rem;
-  background-color: white;
   padding: 1.5rem;
   border-radius: 16px;
+  background-color: white;
 }
 
 .dot {
-  color: $darkGrayishCyan;
   padding: 0 0.2rem;
-}
-
-h2 {
-  font-size: 0.8rem;
-  display: inline;
-  line-height: 14px;
-}
-
-h1 {
-  font-size: 1rem;
-  margin: 1rem 0;
-}
-
-p {
   color: $darkGrayishCyan;
-  font-size: 0.8rem;
 }
 
 img {
@@ -110,29 +142,48 @@ img {
   width: 50px;
   height: 50px;
   top: -1.4rem;
+
+  @media screen and (min-width: 60rem) {
+    width: 100px;
+    height: 100px;
+    top: unset;
+    left: 1.4rem;
+  }
 }
 
 .jobItem {
   position: relative;
   margin-top: 4rem;
+
+  @media screen and (min-width: 60rem) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .jobDescriptionBox {
   margin: 0.8rem 0 1.3rem 0;
+
+  @media screen and (min-width: 60rem) {
+    margin: 0;
+    margin-left: 7rem;
+  }
 }
 
 .jobCompany {
-  color: $desaturatedDarkCyan;
   margin-right: 1rem;
+  color: $desaturatedDarkCyan;
 }
 
 .tagNew,
 .tagFeatured {
-  text-transform: uppercase;
-  border-radius: 16px;
-  color: white;
   display: inline-block;
   padding: 0.5rem 0.7rem;
+  border-radius: 16px;
+  color: white;
+  font-size: 0.7rem;
+  text-transform: uppercase;
 }
 
 .tagFeatured {
@@ -145,62 +196,49 @@ img {
 
 .itemFeatured {
   position: absolute;
-  inset: 0;
-  overflow: hidden;
+  width: 1rem;
+  top: 0;
+  left: 0;
+  bottom: 0;
   border-radius: 16px;
+  overflow: hidden;
 
   &::after {
     position: absolute;
     content: "";
-    top: 0;
-    bottom: 0;
-    left: 0;
     width: 0.5rem;
+    top: 0;
+    left: 0;
+    bottom: 0;
     background-color: $desaturatedDarkCyan;
   }
 }
 
 .tags {
-  border-top: 1px solid $darkGrayishCyan;
   display: flex;
+  padding-top: 1rem;
   flex-wrap: wrap;
   gap: 1rem;
-  padding-top: 1rem;
+  border-top: 1px solid $darkGrayishCyan;
+
+  @media screen and (min-width: 60rem) {
+    border: none;
+  }
 }
 
 .tagItem {
-  background-color: $lightGrayishCyanBg;
-  color: $desaturatedDarkCyan;
-  border-radius: 8px;
   padding: 0.7rem 0.4rem;
   border: none;
+  border-radius: 8px;
+  background-color: $lightGrayishCyanBg;
   font-size: 0.8rem;
+  color: $desaturatedDarkCyan;
+  transition: all 0.2s ease-in-out;
 
   &:hover,
   &:focus {
     cursor: pointer;
-  }
-}
-
-body {
-  position: relative;
-  background-color: $lightGrayishCyanBg;
-
-  &::before {
-    position: absolute;
-    content: "";
-    height: 10rem;
-    left: 0;
-    right: 0;
-    background-image: url("../images/bg-header-mobile.svg");
-    background-repeat: no-repeat;
     background-color: $desaturatedDarkCyan;
-    background-size: cover;
-    z-index: -1;
+    color: white;
   }
-}
-
-.bgHelper {
-  padding: 0 2rem;
-  padding-top: 5rem;
 }

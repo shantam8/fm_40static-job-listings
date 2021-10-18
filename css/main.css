@@ -14,30 +14,81 @@ button {
   font-weight: 700;
 }
 
+h1 {
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+h2 {
+  display: inline;
+  font-size: 0.8rem;
+  line-height: 14px;
+}
+
 p {
+  font-size: 0.8rem;
   font-weight: 500;
+  color: #7b8e8e;
+}
+
+body {
+  position: relative;
+  margin-bottom: 5rem;
+  background-color: #effafa;
+}
+
+body::before {
+  position: absolute;
+  content: "";
+  height: 10rem;
+  left: 0;
+  right: 0;
+  background-color: #5ba4a4;
+  background-image: url("../images/bg-header-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+
+.bgHelper {
+  padding: 0 2rem;
+  padding-top: 5rem;
+}
+
+@media screen and (min-width: 70rem) {
+  .bgHelper {
+    margin: 0 auto;
+    max-width: 70rem;
+  }
 }
 
 #filterBox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 #btnClearAllFilters {
-  border: 1px solid gray;
-  color: #7b8e8e;
-  background-color: transparent;
-  padding: 0 0.2rem;
   display: block;
+  padding: 0 0.2rem;
   height: 2rem;
+  border: none;
+  background-color: transparent;
+  color: #7b8e8e;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 #btnClearAllFilters:hover, #btnClearAllFilters:focus {
   cursor: pointer;
+  text-decoration: underline;
+  color: #5ba4a4;
 }
 
 #filterItems {
@@ -46,65 +97,52 @@ p {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .filterItem {
-  border-radius: 8px;
-  overflow: hidden;
   height: 2rem;
+  border-radius: 8px;
   background-color: #effafa;
+  overflow: hidden;
 }
 
 .filterText {
   display: inline-block;
   padding: 0 0.6rem;
-  font-weight: 700;
-  color: #5ba4a4;
   height: 100%;
+  color: #5ba4a4;
+  font-weight: 700;
 }
 
 .btnRemoveFilterItem {
+  width: 2rem;
+  height: 100%;
+  border: none;
   background-color: #5ba4a4;
   background-image: url("../images/icon-remove.svg");
-  height: 100%;
-  width: 2rem;
   background-repeat: no-repeat;
   background-position: center;
-  border: none;
   vertical-align: middle;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .btnRemoveFilterItem:hover, .btnRemoveFilterItem:focus {
   cursor: pointer;
+  background-color: black;
 }
 
 .itemBox {
   margin-top: 2rem;
-  background-color: white;
   padding: 1.5rem;
   border-radius: 16px;
+  background-color: white;
 }
 
 .dot {
-  color: #7b8e8e;
   padding: 0 0.2rem;
-}
-
-h2 {
-  font-size: 0.8rem;
-  display: inline;
-  line-height: 14px;
-}
-
-h1 {
-  font-size: 1rem;
-  margin: 1rem 0;
-}
-
-p {
   color: #7b8e8e;
-  font-size: 0.8rem;
 }
 
 img {
@@ -115,27 +153,58 @@ img {
   top: -1.4rem;
 }
 
+@media screen and (min-width: 60rem) {
+  img {
+    width: 100px;
+    height: 100px;
+    top: unset;
+    left: 1.4rem;
+  }
+}
+
 .jobItem {
   position: relative;
   margin-top: 4rem;
+}
+
+@media screen and (min-width: 60rem) {
+  .jobItem {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 
 .jobDescriptionBox {
   margin: 0.8rem 0 1.3rem 0;
 }
 
+@media screen and (min-width: 60rem) {
+  .jobDescriptionBox {
+    margin: 0;
+    margin-left: 7rem;
+  }
+}
+
 .jobCompany {
-  color: #5ba4a4;
   margin-right: 1rem;
+  color: #5ba4a4;
 }
 
 .tagNew,
 .tagFeatured {
-  text-transform: uppercase;
-  border-radius: 16px;
-  color: white;
   display: inline-block;
   padding: 0.5rem 0.7rem;
+  border-radius: 16px;
+  color: white;
+  font-size: 0.7rem;
+  text-transform: uppercase;
 }
 
 .tagFeatured {
@@ -148,65 +217,55 @@ img {
 
 .itemFeatured {
   position: absolute;
-  inset: 0;
-  overflow: hidden;
+  width: 1rem;
+  top: 0;
+  left: 0;
+  bottom: 0;
   border-radius: 16px;
+  overflow: hidden;
 }
 
 .itemFeatured::after {
   position: absolute;
   content: "";
-  top: 0;
-  bottom: 0;
-  left: 0;
   width: 0.5rem;
+  top: 0;
+  left: 0;
+  bottom: 0;
   background-color: #5ba4a4;
 }
 
 .tags {
-  border-top: 1px solid #7b8e8e;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding-top: 1rem;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: 1rem;
-  padding-top: 1rem;
+  border-top: 1px solid #7b8e8e;
+}
+
+@media screen and (min-width: 60rem) {
+  .tags {
+    border: none;
+  }
 }
 
 .tagItem {
-  background-color: #effafa;
-  color: #5ba4a4;
-  border-radius: 8px;
   padding: 0.7rem 0.4rem;
   border: none;
+  border-radius: 8px;
+  background-color: #effafa;
   font-size: 0.8rem;
+  color: #5ba4a4;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .tagItem:hover, .tagItem:focus {
   cursor: pointer;
-}
-
-body {
-  position: relative;
-  background-color: #effafa;
-}
-
-body::before {
-  position: absolute;
-  content: "";
-  height: 10rem;
-  left: 0;
-  right: 0;
-  background-image: url("../images/bg-header-mobile.svg");
-  background-repeat: no-repeat;
   background-color: #5ba4a4;
-  background-size: cover;
-  z-index: -1;
-}
-
-.bgHelper {
-  padding: 0 2rem;
-  padding-top: 5rem;
+  color: white;
 }
 /*# sourceMappingURL=main.css.map */
