@@ -110,6 +110,7 @@ function createJobList() {
 
     newElementJobLogo = createCompleteElement("img", "jobCompanyLogo");
     newElementJobLogo.setAttribute("src", element.logo);
+    newElementJobLogo.setAttribute("alt", "company logo");
     newElementJobDescription.appendChild(newElementJobLogo);
 
     let h2 = createCompleteElement("h2", "jobCompany");
