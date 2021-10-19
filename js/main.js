@@ -1,31 +1,71 @@
-let main = document.getElementById("mainJobItemList");
+let mainJobItemList = document.getElementById("mainJobItemList");
+let btnClearAllFilters = document.querySelector("#btnClearAllFilters");
 let filterBox = document.getElementById("filterBox");
 let filterItems = document.getElementById("filterItems");
+let tagItems = document.getElementsByClassName["tagItem"];
 let filterArray = [];
-
 let data;
 
-function updateShownItems(){
-    console.log("update");
-}
+function updateShownItems() {
+  for (let i = 0; i < mainJobItemList.childElementCount; i++) {
+    mainJobItemList.childNodes[i].classList.remove("displayNone");
+  }
 
-function handleRemoveFilter(event) {
-  console.log("remove");
-  console.log(event.target.previousSibling.textContent);
-}
-
-function handleAddFilterClick(event) {
-    console.log(event.target);
-
-  if (filterArray.indexOf(event.target.textContent) > -1) {
+  if (filterArray.length == 0) {
     return;
   }
 
+  for (let i = 0; i < mainJobItemList.childElementCount; i++) {
+    //loop through jobitems
+    let jobItemTags =
+      mainJobItemList.childNodes[i].getElementsByClassName("tagItem");
+
+    for (let filterItem = 0; filterItem < filterArray.length; filterItem++) {
+      // loop through filterarray
+      let itemHasTag = false;
+
+      for (let j = 0; j < jobItemTags.length; j++) {
+        // loop through single tags of one jobitem
+
+        if (jobItemTags[j].textContent == filterArray[filterItem]) {
+          itemHasTag = true;
+          break;
+        }
+      }
+      if (!itemHasTag) {
+        mainJobItemList.childNodes[i].classList.add("displayNone");
+      }
+    }
+  }
+}
+
+function removeAllFilters() {
+  filterArray = [];
+  while (filterItems.hasChildNodes()) {
+    filterItems.removeChild(filterItems.childNodes[0]);
+  }
+  filterBox.style.display = "none";
+  updateShownItems();
+}
+
+function handleRemoveFilter(event) {
+  filterArray.splice(
+    filterArray.indexOf(event.target.previousSibling.textContent),
+    1
+  );
+  event.target.parentElement.remove();
+  if (filterArray.length == 0) {
+    filterBox.style.display = "none";
+  }
+  updateShownItems();
+}
+
+function handleAddFilterClick(event) {
+  if (filterArray.indexOf(event.target.textContent) > -1) {
+    return;
+  }
   filterArray.push(event.target.textContent);
-
   if (filterArray.length == 1) {
-    console.log("flex");
-
     filterBox.style.display = "flex";
   }
 
@@ -146,32 +186,27 @@ function createJobList() {
 
     newElementJobItem.appendChild(newElementTags);
 
-    main.appendChild(newElementJobItem);
+    mainJobItemList.appendChild(newElementJobItem);
   });
 }
 
 function loadJson() {
   let xhttp = new XMLHttpRequest();
-
   xhttp.overrideMimeType("application/JSON");
-
   xhttp.open("GET", "../data.json", true);
-
   xhttp.onreadystatechange = () => {
     if (xhttp.readyState == 4 && xhttp.status == "200") {
       let tempData = xhttp.responseText;
       data = JSON.parse(tempData);
-      console.log(data);
       createJobList();
     }
   };
-
   xhttp.send();
 }
 
 function init() {
-  console.log("hi");
   loadJson();
+  btnClearAllFilters.addEventListener("click", removeAllFilters);
 }
 
 window.onload = init();

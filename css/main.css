@@ -166,7 +166,7 @@ img {
   img {
     width: 100px;
     height: 100px;
-    top: unset;
+    top: 1rem;
     left: 1.4rem;
   }
 }
@@ -209,21 +209,37 @@ img {
 
 .tagNew,
 .tagFeatured {
+  position: relative;
   display: inline-block;
-  padding: 0.5rem 0.7rem;
-  border-radius: 16px;
-  color: white;
   font-size: 0.7rem;
   text-transform: uppercase;
+  color: white;
+  z-index: 5;
 }
 
-.tagFeatured {
+.tagNew::after,
+.tagFeatured::after {
+  position: absolute;
+  content: "";
+  height: 30px;
+  top: -10px;
+  left: -9px;
+  border-radius: 16px;
+  z-index: -1;
+}
+
+.tagFeatured::after {
+  width: 81px;
   background-color: #2c3a3a;
 }
 
 .tagNew {
+  margin-right: 1.5rem;
+}
+
+.tagNew::after {
+  width: 53px;
   background-color: #5ba4a4;
-  margin-right: 0.5rem;
 }
 
 .itemFeatured {
@@ -274,7 +290,7 @@ img {
   transition: all 0.2s ease-in-out;
 }
 
-.tagItem:hover, .tagItem:focus {
+.tagItem:hover {
   cursor: pointer;
   background-color: #5ba4a4;
   color: white;
