@@ -193,7 +193,7 @@ function createJobList() {
 function loadJson() {
   let xhttp = new XMLHttpRequest();
   xhttp.overrideMimeType("application/JSON");
-  xhttp.open("GET", "../data.json", true);
+  xhttp.open("GET", "../fm_40static-job-listings/data.json", true);
   xhttp.onreadystatechange = () => {
     if (xhttp.readyState == 4 && xhttp.status == "200") {
       let tempData = xhttp.responseText;
